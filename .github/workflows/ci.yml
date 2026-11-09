@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  call-node-template:
+    uses: kube-automations-v1/shared-pipelines/.github/workflows/node-template.yml@main
+    permissions:
+      contents: read
+      packages: write
+    secrets:
+      GITOPS_PAT: ${{ secrets.GITOPS_PAT }}
